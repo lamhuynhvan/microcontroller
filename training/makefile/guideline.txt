@@ -1,0 +1,55 @@
+
+- Hiểu rõ quá trình build source C sang file hex hoặc binary image để chạy trên MCU.
+- Điều chỉnh được cái chi tiết mình muốn
+- Compiler option
+- Ưu điểm: không phụ thuộc IDE, chạy trên win, linux..
+
+http://www.gnu.org/software/make/manual/make.html
+
+Chương trình make xử lý Makefile như thế nào?
+make đọc makefile 1 lần từ trên xuống dưới sau đó xử lý rule đầu tiên nó gặp trên makefile (default)
+
+makefile cũng là 1 ngôn ngữ cần chương trình để biên dịch
+
+1. Cài đặt
+- Cài MSYS2
+- Cài makefile: pacman -S make (make --version để kiểm tra)
+- Cài vim: pacman -S vim
+
+2. Tạo makefile:
+
+cd D:\Linux Embedded\microcontroller\makefile
+vim Makefile
+Nhấn Esc
+:wq
+
+3. Variable:
+var := "Test variable"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
