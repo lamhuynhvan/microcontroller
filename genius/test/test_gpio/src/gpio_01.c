@@ -40,7 +40,7 @@ void delay(unsigned int timeout)
 void main(void)
 {
     SET_GPIO_CLOCK(PORTC);
-    GPIO_SET_MODE_PIN(PORTC, GPIO_MODE_OPTION_OUTPUT);
+    GPIO_SET_MODE_PIN(PORTC, LED3_PIN, GPIO_MODE_OPTION_OUTPUT);
     while(1)
     {
         GPIO_WRITE_PIN(PORTC, LED3_PIN, HIGH);
