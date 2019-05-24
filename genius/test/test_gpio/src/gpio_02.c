@@ -23,15 +23,45 @@
 *
 *===================================================================================================*/
 
-#ifndef _GPIO_COMMON_
-#define _GPIO_COMMON_
+#include "gpio_common.h"
 
-#include "driver.h"
+void delay(unsigned int timeout)
+{
+    unsigned int t1, t2;
+    for (t1 = 0; t1 < timeout; t1++)
+    {
+        for (t2 = 0; t2 < 0xFFF; t2++)
+        {
+          asm(" nop");
+        }
+    }
+}
 
-void delay(unsigned int timeout);
-
-#define LED3_PIN            9U
-#define USER_BUTTON         0U
+void main(void)
+{
+    UINT8 button_state = 0;
+    SET_GPIO_CLOCK(PORTA);
+    SET_GPIO_CLOCK(PORTC);
+    GPIO_SET_MODE_PIN(PORTA, USER_BUTTON, GPIO_MODE_OPTION_INPUT);
+    GPIO_SET_MODE_PIN(PORTC, LED3_PIN, GPIO_MODE_OPTION_OUTPUT);
+    while(1)
+    {
+        if(GPIO_READ_PIN(PORTA, USER_BUTTON))
+        {
+            if(button_state)
+            {
+                GPIO_WRITE_PIN(PORTC, LED3_PIN, HIGH);
+                button_state = 0;
+            }
+            else
+            {
+                GPIO_WRITE_PIN(PORTC, LED3_PIN, LOW);
+                button_state = 1;
+            }
+        }
+        delay(0x0f);
+    }
+}
 
 #ifdef HISTORY
 /***********************************************************************
@@ -43,5 +73,3 @@ void delay(unsigned int timeout);
 *
 ***********************************************************************/
 #endif /* HISTORY */
-
-#endif /* _GPIO_COMMON_ */
