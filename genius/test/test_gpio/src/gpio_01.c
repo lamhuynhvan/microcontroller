@@ -23,16 +23,32 @@
 *
 *===================================================================================================*/
 
-#ifndef _DRIVER_H_
-#define _DRIVER_H_
+#include "gpio_common.h"
 
-#include "types.h"
-#include "define_glob.h"
-#include "hw_platform.h"
-#include "clock.h"
-#include "gpio.h"
+void delay(unsigned int timeout)
+{
+    unsigned int t1, t2;
+    for (t1 = 0; t1 < timeout; t1++)
+    {
+        for (t2 = 0; t2 < 0xFFF; t2++)
+        {
+          asm(" nop");
+        }
+    }
+}
 
-
+void main(void)
+{
+    SET_GPIO_CLOCK(PORTC);
+    GPIO_SET_MODE_PIN(PORTC, GPIO_MODE_OPTION_OUTPUT);
+    while(1)
+    {
+        GPIO_WRITE_PIN(PORTC, LED3_PIN, HIGH);
+        delay(0xff);
+        GPIO_WRITE_PIN(PORTC, LED3_PIN, LOW);
+        delay(0xff);
+    }
+}
 
 #ifdef HISTORY
 /***********************************************************************
@@ -44,5 +60,3 @@
 *
 ***********************************************************************/
 #endif /* HISTORY */
-
-#endif /* _DRIVER_H_ */

@@ -23,15 +23,14 @@
 *
 *===================================================================================================*/
 
-#ifndef _DRIVER_H_
-#define _DRIVER_H_
+#ifndef _GPIO_COMMON_
+#define _GPIO_COMMON_
 
-#include "types.h"
-#include "define_glob.h"
-#include "hw_platform.h"
-#include "clock.h"
-#include "gpio.h"
+#include "driver.h"
 
+void delay(unsigned int timeout);
+
+#define LED3_PIN         9U
 
 
 #ifdef HISTORY
@@ -45,4 +44,4 @@
 ***********************************************************************/
 #endif /* HISTORY */
 
-#endif /* _DRIVER_H_ */
+#endif /* _GPIO_COMMON_ */

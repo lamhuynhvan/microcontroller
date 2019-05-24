@@ -201,7 +201,7 @@ UINT8 GPIO_READ_PIN(UINT8 port, UINT8 pin)
     return (UINT8)value;
 }
 
-uint8_t GPIO_TOGGLE_PIN(uint8_t port, uint8_t pin)
+UINT8 GPIO_TOGGLE_PIN(UINT8 port, UINT8 pin)
 {
     GPIO_t *pPORT;
 

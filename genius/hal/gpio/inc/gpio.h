@@ -45,7 +45,7 @@
 void GPIO_SET_MODE_PIN(UINT8 port, UINT8 pin, UINT32 mode_option);
 void GPIO_WRITE_PIN(UINT8 port, UINT8 pin, UINT8 value);
 UINT8 GPIO_READ_PIN(UINT8 port, UINT8 pin);
-uint8_t GPIO_TOGGLE_PIN(uint8_t port, uint8_t pin);
+UINT8 GPIO_TOGGLE_PIN(UINT8 port, UINT8 pin);
 
 #ifdef HISTORY
 /***********************************************************************

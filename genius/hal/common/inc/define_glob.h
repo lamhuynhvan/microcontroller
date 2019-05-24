@@ -96,6 +96,8 @@
 
 #define SET                             (UINT8)0x1U
 #define CLEAR                           (UINT8)0x0U
+#define HIGH                            (UINT8)0x1U
+#define LOW                             (UINT8)0x0U
 
 #define SET_BITS_8(REG, BITS)           ((REG) |= ((UINT8)BITS))
 #define CLEAR_BITS_8(REG, BITS)         ((REG) &= ~((UINT8)BITS))
