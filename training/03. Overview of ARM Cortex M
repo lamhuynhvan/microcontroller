@@ -13,7 +13,7 @@ Vector ngắt có thể chia 3 phần:
 - Các ID ngắt của 2, 15: Từ cá ngoại vi core, exception gửi tới.
 - Các ID ngắt từ 16 trở lên (ngoại vi)
 
-Vector table chứa cá address của những interrupt handler (tên do ta quy ước) nhưng compiler build ra, mỗi tên match với địa chỉ nào đấy hoặc người developer alocate handler ngắt đó vào cái vị trí nào đó trong vùng nhớ của MCU.
+Vector table chứa các address của những interrupt handler (tên do ta quy ước) nhưng compiler build ra, mỗi tên match với địa chỉ nào đấy hoặc người developer alocate handler ngắt đó vào cái vị trí nào đó trong vùng nhớ của MCU.
 
 EX: Có hàm xử lý ngắt cho Interrupt#31vector phải match 1:1 với offset của vector là 0x000000BC tính từ đầu bảng vector (đây là giá trị bắt đầu của function ngắt => nạp cho PC và PC sẽ chạy từ địa chỉ đấy)
 

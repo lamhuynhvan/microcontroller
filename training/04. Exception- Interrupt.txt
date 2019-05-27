@@ -1,0 +1,26 @@
+
+- Exectipn:
+Nguyên nhân đến từ nội tại việc thực thi một lệnh
+Không thể hoàn thành việc thực thi lệnh hiện tại khi có exectipn
+Exception được gọi là một Synchronous event (đồng bộ với quá trình thực thi lệnh của core)
+- Interrupt: NVIC (Nested vectored interrupt controller)
+Ngoại vi (peripheral) tạo ra interrupt
+Interrupt được xử lý bởi core sau khi hoàn thành lệnh hiện tại
+Interrupt được gọi là một Asychronous event (quá trình gây ra ngắt không đồng bộ với quá trình core thực thi lệnh)
+
+
+NVIC thu thập tất cả nguồn ngắt từ ngoại vi, system timer, core gửi tới xử lý và gửi tới core xử lý tiếp theo
+
+Vector ngắt có thể chia 3 phần:
+
+- Các ID ngắt của 0, 1: (MSP init value, Reset vector (Giá trị couter, nơi sau khi reset sẽ nạp lại giá trị PC đấy, từ giá trị PC đấy sẽ chạy chương trình từ nơi đâu trong vùng nhớ))
+
+- Các ID ngắt của 2, 15: Tất cả interrupt và exception của core giống nhau (tất cả các hãng nếu theo kiến trúc ARM).
+
+- Các ID ngắt từ 16 trở lên của ngoại vi 
+Vector table chứa cá address của những interrupt handler (tên do ta quy ước) nhưng compiler build ra, mỗi tên match với địa chỉ nào đấy hoặc người developer alocate handler ngắt đó vào cái vị trí nào đó trong vùng nhớ của MCU.
+
+MSP initial value: Giá trị khởi tạo stack pointer register
+Reset vector: Giá trị khởi tạo cho PC  
+PSR: Program status register -> show interrupt active mà core xử lý
+PRIMASK: Cho phép ngắt toàn cục hay cục bộ
