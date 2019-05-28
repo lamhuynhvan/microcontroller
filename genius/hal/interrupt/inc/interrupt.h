@@ -33,6 +33,10 @@
 #define SYSCFG_EXTICR_EXTI_PORTE            0x04U
 #define SYSCFG_EXTICR_EXTI_PORTF            0x05U
 
+#define NVIC_IRQ_TYPE_MASK                  0x1FU
+#define NVIC_IRQ_PRIORITY_MASK              0xFFU
+
+
 void EXTI_INIT(UINT8 port, UINT8 pin, UINT8 trigger_event);
 void NVIC_SetPriority(IRQn_Type IRQn, UINT8 priority);
 void NVIC_EnableIRQ(IRQn_Type IRQn);
