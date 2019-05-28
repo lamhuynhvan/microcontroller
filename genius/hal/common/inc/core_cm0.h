@@ -28,6 +28,24 @@
 
 #include "types.h"
 
+/* ================== SCB Register Map =================== */
+typedef volatile struct
+{
+    UINT32  CPUID;
+    UINT32  ICSR;
+    UINT32  Reserved1;
+    UINT32  AIRCR;
+    UINT32  SCR;
+    UINT32  CCR;
+    UINT32  Reserved2;
+    UINT32  SHPR2;
+    UINT32  SHPR3;
+}SCB_t;
+
+#define SCB_BASE_ADDR          ((uint32)0xE000ED00UL)
+
+#define pSCB                   ((SCB_t *)SCB_BASE_ADDR)
+
 /* ================== NVIC Register Map ================== */
 typedef volatile struct
 {
