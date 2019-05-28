@@ -29,6 +29,7 @@
 #include "types.h"
 #include "define_glob.h"
 #include "hw_platform.h"
+#include "core_cm0.h"
 #include "clock.h"
 #include "gpio.h"
 

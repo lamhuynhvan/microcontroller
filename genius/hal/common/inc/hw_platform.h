@@ -111,14 +111,7 @@ typedef volatile struct
 typedef volatile struct
 {
     UINT32  CFGR1;
-    UINT16  EXTICR1;
-    UINT16  Reserved1;
-    UINT16  EXTICR2;
-    UINT16  Reserved2;
-    UINT16  EXTICR3;
-    UINT16  Reserved3;
-    UINT16  EXTICR4;
-    UINT16  Reserved4;
+    UINT32  EXTICR[4];
     UINT16  CFGR2;
 }SYSCFG_t;
 
@@ -126,44 +119,10 @@ typedef volatile struct
 
 #define pSYSCFG                 ((SYSCFG_t *)SYSCFG_BASE_ADDR)
 
-/* ================== NVIC Register Map ================== */
-typedef volatile struct
-{
-    UINT32  ISER;
-    UINT32  Reserved1[31];
-    UINT32  ICER;
-    UINT32  Reserved1[31];
-    UINT32  ISPR;
-    UINT32  Reserved1[31];
-    UINT32  ICPR;
-    UINT32  Reserved1[95];
-    UINT32  IPR[8];
-}NVIC_t;
-
-#define NVIC_BASE_ADDR          ((uint32)0xE000E100UL)
-
-#define pNVIC                   ((NVIC_t *)NVIC_BASE_ADDR)
 
 
 
 
-
-
-
-
-
-/* ================== System Timer - Systick ================== */
-typedef volatile struct
-{
-    UINT32  CSR;    /* SysTick Control and Status Register */
-    UINT32  RVR;    /* SysTick Reload Value Register       */
-    UINT32  CVR;    /* SysTick Current Value Register      */
-    UINT32  CALIB;  /* SysTick Calibration Value Register  */
-}SYST_t;
-
-#define SYST_BASE_ADDR          ((uint32)0xE000E010UL)
-
-#define pSYST                   ((SYST_t *)SYST_BASE_ADDR)
 
 
 
