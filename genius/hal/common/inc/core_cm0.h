@@ -111,6 +111,12 @@ typedef enum IRQn
 }IRQn_Type;
 
 
+#define enable_global_irq                   asm("cpsie i")
+#define disable_global_irq                  __asm volatile("cpsid i")
+
+
+
+
 #ifdef HISTORY
 /***********************************************************************
 *

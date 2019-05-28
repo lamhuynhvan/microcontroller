@@ -75,23 +75,6 @@ void EXTI_INIT(UINT8 port, UINT8 pin, UINT8 trigger_event)
     }
 }
 
-void NVIC_SetPriority(IRQn_Type IRQn, UINT8 priority)
-{
-    pNVIC->IPR[IRQn] &= ~(UINT8)NVIC_IRQ_PRIORITY_MASK;
-    pNVIC->IPR[IRQn] = (UINT8)(priority << (8U - NVIC_PRIO_BITS)) & (UINT8)NVIC_IRQ_PRIORITY_MASK;
-}
-
-void NVIC_EnableIRQ(IRQn_Type IRQn)
-{
-    pNVIC->ISER |= ((UINT32)1U << ((UINT8)IRQn & (UINT8)NVIC_IRQ_TYPE_MASK));
-}
-
-void Enable_Global_Interrupt(void)
-{
-    asm("cpsie i");
-}
-
-
 
 #ifdef HISTORY
 /***********************************************************************
