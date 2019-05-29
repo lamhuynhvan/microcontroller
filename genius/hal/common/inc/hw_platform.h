@@ -119,9 +119,39 @@ typedef volatile struct
 
 #define pSYSCFG                 ((SYSCFG_t *)SYSCFG_BASE_ADDR)
 
+/* ================== USART Register Map ================== */
+typedef volatile struct
+{
+    UINT32  CR1;
+    UINT32  CR2;
+    UINT32  CR3;
+    UINT32  BRR;
+    UINT32  GTPR;
+    UINT32  RTOR;
+    UINT32  RQR;
+    UINT32  ISR;
+    UINT32  ICR;
+    UINT32  RDR;
+    UINT32  TDR;
+}USART_t;
 
+#define USART1_BASE_ADDR         ((uint32)0x40013800UL)
+#define USART2_BASE_ADDR         ((uint32)0x40004400UL)
+#define USART3_BASE_ADDR         ((uint32)0x40004800UL)
+#define USART4_BASE_ADDR         ((uint32)0x40004C00UL)
+#define USART5_BASE_ADDR         ((uint32)0x40005000UL)
+#define USART6_BASE_ADDR         ((uint32)0x40011400UL)
+#define USART7_BASE_ADDR         ((uint32)0x40011800UL)
+#define USART8_BASE_ADDR         ((uint32)0x40011C00UL)
 
-
+#define pUSART1                  ((USART1_t *)USART1_BASE_ADDR)
+#define pUSART2                  ((USART2_t *)USART2_BASE_ADDR)
+#define pUSART3                  ((USART3_t *)USART3_BASE_ADDR)
+#define pUSART4                  ((USART4_t *)USART4_BASE_ADDR)
+#define pUSART5                  ((USART5_t *)USART5_BASE_ADDR)
+#define pUSART6                  ((USART6_t *)USART6_BASE_ADDR)
+#define pUSART7                  ((USART7_t *)USART7_BASE_ADDR)
+#define pUSART8                  ((USART8_t *)USART8_BASE_ADDR)
 
 
 
