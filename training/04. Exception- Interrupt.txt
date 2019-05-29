@@ -24,3 +24,14 @@ MSP initial value: Giá trị khởi tạo stack pointer register
 Reset vector: Giá trị khởi tạo cho PC  
 PSR: Program status register -> show interrupt active mà core xử lý
 PRIMASK: Cho phép ngắt toàn cục hay cục bộ
+
+
+========================================================================
+
+CÁC BỘ THANH GHI CỦA CHIP
+
+1. NVIC (ISPR)
+2. SCB (System Timer Clock)
+ICSR: vector active
+3. Thanh ghi Core (quan tâm đến PRIMASK, PRS)
+IPSR: Xử lý interrupt, Chỉ ra IRQ number (page 23) == position vector table

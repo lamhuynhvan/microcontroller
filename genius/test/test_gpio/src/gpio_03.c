@@ -75,7 +75,7 @@ void main(void)
     EXTI_INIT(PORTA, USER_BUTTON, EXTI_RISING_TRIGGER);
     NVIC_SetPriority(EXTI0_1_IRQn, 0x01U);
     NVIC_EnableIRQ(EXTI0_1_IRQn);
-    Enable_Global_Interrupt();
+    enable_global_irq;
     /*
     while(1)
     {
