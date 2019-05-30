@@ -41,14 +41,6 @@ void EXTI_INIT(UINT8 port, UINT8 pin, UINT8 exti_trigger)
     {
         pEXTI->FTSR |=  ((UINT32)1U << pin);
     }
-    else if()
-    {
-        
-    }
-    else
-    {
-        /* Do nothing */
-    }
 
     /* SYSCFG external interrupt configuration */
     switch(port)
