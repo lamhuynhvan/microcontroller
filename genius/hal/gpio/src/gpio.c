@@ -109,33 +109,29 @@ void GPIO_WRITE_PIN(UINT8 port, UINT8 pin, UINT8 value)
 {
     GPIO_t *pPORT;
 
-    if(PORTA == port)
+    switch(port)
     {
-        pPORT = pPORTA;
-    }
-    else if(PORTB == port)
-    {
-        pPORT = pPORTB;
-    }
-    else if(PORTC == port)
-    {
-        pPORT = pPORTC;
-    }
-    else if(PORTD == port)
-    {
-        pPORT = pPORTD;
-    }
-    else if(PORTE == port)
-    {
-        pPORT = pPORTE;
-    }
-    else if(PORTF == port)
-    {
-        pPORT = pPORTF;
-    }
-    else
-    {
-        pPORT = NULL_PTR;
+        case PORTA:
+            pPORT = pPORTA;
+            break;
+        case PORTB:
+            pPORT = pPORTB;
+            break;
+        case PORTC:
+            pPORT = pPORTC;
+            break;
+        case PORTD:
+            pPORT = pPORTD;
+            break;
+        case PORTE:
+            pPORT = pPORTE;
+            break;
+        case PORTF:
+            pPORT = pPORTF;
+            break;
+        default:
+            pPORT = NULL_PTR;
+            break;
     }
 
     if(NULL_PTR != pPORT)
@@ -160,33 +156,29 @@ UINT8 GPIO_READ_PIN(UINT8 port, UINT8 pin)
     UINT32 value = 0x00U;
     GPIO_t *pPORT;
 
-    if(PORTA == port)
+    switch(port)
     {
-        pPORT = pPORTA;
-    }
-    else if(PORTB == port)
-    {
-        pPORT = pPORTB;
-    }
-    else if(PORTC == port)
-    {
-        pPORT = pPORTC;
-    }
-    else if(PORTD == port)
-    {
-        pPORT = pPORTD;
-    }
-    else if(PORTE == port)
-    {
-        pPORT = pPORTE;
-    }
-    else if(PORTF == port)
-    {
-        pPORT = pPORTF;
-    }
-    else
-    {
-        pPORT = NULL_PTR;
+        case PORTA:
+            pPORT = pPORTA;
+            break;
+        case PORTB:
+            pPORT = pPORTB;
+            break;
+        case PORTC:
+            pPORT = pPORTC;
+            break;
+        case PORTD:
+            pPORT = pPORTD;
+            break;
+        case PORTE:
+            pPORT = pPORTE;
+            break;
+        case PORTF:
+            pPORT = pPORTF;
+            break;
+        default:
+            pPORT = NULL_PTR;
+            break;
     }
 
     if(NULL_PTR != pPORT)
@@ -201,33 +193,29 @@ UINT8 GPIO_TOGGLE_PIN(UINT8 port, UINT8 pin)
 {
     GPIO_t *pPORT;
 
-    if(PORTA == port)
+    switch(port)
     {
-        pPORT = pPORTA;
-    }
-    else if(PORTB == port)
-    {
-        pPORT = pPORTB;
-    }
-    else if(PORTC == port)
-    {
-        pPORT = pPORTC;
-    }
-    else if(PORTD == port)
-    {
-        pPORT = pPORTD;
-    }
-    else if(PORTE == port)
-    {
-        pPORT = pPORTE;
-    }
-    else if(PORTF == port)
-    {
-        pPORT = pPORTF;
-    }
-    else
-    {
-        pPORT = NULL_PTR;
+        case PORTA:
+            pPORT = pPORTA;
+            break;
+        case PORTB:
+            pPORT = pPORTB;
+            break;
+        case PORTC:
+            pPORT = pPORTC;
+            break;
+        case PORTD:
+            pPORT = pPORTD;
+            break;
+        case PORTE:
+            pPORT = pPORTE;
+            break;
+        case PORTF:
+            pPORT = pPORTF;
+            break;
+        default:
+            pPORT = NULL_PTR;
+            break;
     }
 
     if(NULL_PTR != pPORT)
