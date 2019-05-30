@@ -23,8 +23,11 @@
 #define _GPIO_H_
 #include "driver.h"
 
-#define EXTI_RISING_TRIGGER                 0x00U
-#define EXTI_FALLING_TRIGGER                0x01U
+#define EXTI_TRIGGER_NONE                   0x00U
+#define EXTI_TRIGGER_RISING                 0x01U
+#define EXTI_TRIGGER_FALLING                0x02U
+#define EXTI_TRIGGER_BOTH                   0x03U
+
 #define SYSCFG_EXTICR_EXTI_MASK             0x0FU
 #define SYSCFG_EXTICR_EXTI_PORTA            0x00U
 #define SYSCFG_EXTICR_EXTI_PORTB            0x01U
@@ -37,7 +40,7 @@
 #define NVIC_IRQ_PRIORITY_MASK              0xFFU
 
 
-void EXTI_INIT(UINT8 port, UINT8 pin, UINT8 trigger_event);
+void EXTI_INIT(UINT8 port, UINT8 pin, UINT8 exti_trigger);
 // void NVIC_SetPriority(IRQn_Type IRQn, UINT8 priority);
 // void NVIC_EnableIRQ(IRQn_Type IRQn);
 // void Enable_Global_Interrupt(void);

@@ -21,22 +21,29 @@
 *===================================================================================================*/
 #include "interrupt.h"
 
-void EXTI_INIT(UINT8 port, UINT8 pin, UINT8 trigger_event)
+void EXTI_INIT(UINT8 port, UINT8 pin, UINT8 exti_trigger)
 {
     /* Enable interrupt for EXTI0 */
     pEXTI->IMR &= ~((UINT32)1U << pin);
     pEXTI->IMR |=  ((UINT32)1U << pin);
 
+    /* Clear Rising/Falling trigger */
+    pEXTI->FTSR &= ~((UINT32)1U << pin);
+    pEXTI->RTSR &= ~((UINT32)1U << pin);
+        
     /* Rising/Falling trigger */
-    if(EXTI_RISING_TRIGGER == trigger_event)
+    if((EXTI_TRIGGER_RISING == exti_trigger) || (EXTI_TRIGGER_BOTH == exti_trigger))
     {
-        pEXTI->FTSR &= ~((UINT32)1U << pin);
         pEXTI->RTSR |=  ((UINT32)1U << pin);
     }
-    else if(EXTI_FALLING_TRIGGER == trigger_event)
+    
+    if((EXTI_TRIGGER_FALLING == exti_trigger) || (EXTI_TRIGGER_BOTH == exti_trigger))
     {
-        pEXTI->RTSR &= ~((UINT32)1U << pin);
         pEXTI->FTSR |=  ((UINT32)1U << pin);
+    }
+    else if()
+    {
+        
     }
     else
     {
