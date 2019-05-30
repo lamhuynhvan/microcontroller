@@ -54,52 +54,52 @@ void GPIO_SET_MODE_PIN(UINT8 port, UINT8 pin, UINT32 mode_option)
     if(NULL_PTR != pPORT)
     {
         /* mode */
-        temp_reg = READ_REG_32(pPORT->MODER, ~(0x03U << (2 * pin)));
+        temp_reg = READ_REG_32(pPORT->MODER, ~(0x03U << (2U * pin)));
         if(GPIO_MODE_OPTION_INPUT == (mode_option & 0x03U))
         {
-            temp_reg |= GPIO_MODE_OPTION_INPUT << (2 * pin);
+            temp_reg |= GPIO_MODE_OPTION_INPUT << (2U * pin);
             WRITE_REG_32(pPORT->MODER, temp_reg);
         }
         else if (GPIO_MODE_OPTION_OUTPUT == (mode_option & 0x03U))
         {
-            temp_reg |= GPIO_MODE_OPTION_OUTPUT << (2 * pin);
+            temp_reg |= GPIO_MODE_OPTION_OUTPUT << (2U * pin);
             WRITE_REG_32(pPORT->MODER, temp_reg);
         }
         else if (GPIO_MODE_OPTION_ALT == (mode_option & 0x03U))
         {
-            temp_reg |= GPIO_MODE_OPTION_ALT << (2 * pin);
+            temp_reg |= GPIO_MODE_OPTION_ALT << (2U * pin);
             WRITE_REG_32(pPORT->MODER, temp_reg);
         }
         else if (GPIO_MODE_OPTION_ANALOG == (mode_option & 0x03U))
         {
-            temp_reg |= GPIO_MODE_OPTION_ANALOG << (2 * pin);
+            temp_reg |= GPIO_MODE_OPTION_ANALOG << (2U * pin);
             WRITE_REG_32(pPORT->MODER, temp_reg);
         }
 
         /* pull-up/down */
-        temp_reg = READ_REG_32(pPORT->PUPDR, ~(0x03U << (2 * pin)));
+        temp_reg = READ_REG_32(pPORT->PUPDR, ~(0x03U << (2U * pin)));
         if(GPIO_MODE_OPTION_PULLUP == (mode_option & 0x0CU))
         {
-            temp_reg |= 0x01U << (2 * pin);
+            temp_reg |= 0x01U << (2U * pin);
             WRITE_REG_32(pPORT->PUPDR, temp_reg);
         }
         else if (GPIO_MODE_OPTION_PULLDOWN == (mode_option & 0x0CU))
         {
-            temp_reg |= 0x02U << (2 * pin);
+            temp_reg |= 0x02U << (2U * pin);
             WRITE_REG_32(pPORT->PUPDR, temp_reg);
         }
 
         /* alt mode */
         if (pin < 8)
         {
-            temp_reg = READ_REG_32(pPORT->AFRL, ~(0x0FU << (4 * pin)));
-            temp_reg |= ((mode_option & 0xF0) >> 4) << (4 * pin);
+            temp_reg = READ_REG_32(pPORT->AFRL, ~(0x0FU << (4U * pin)));
+            temp_reg |= ((mode_option & 0xF0U) >> 4U) << (4U * pin);
             WRITE_REG_32(pPORT->AFRL, temp_reg);
         }
         else
         {
-            temp_reg = READ_REG_32(pPORT->AFRH, ~(0x0FU << (4 * pin)));
-            temp_reg |= ((mode_option & 0xF0) >> 4) << (4 * (pin - 8));
+            temp_reg = READ_REG_32(pPORT->AFRH, ~(0x0FU << (4U * pin)));
+            temp_reg |= ((mode_option & 0xF0U) >> 4U) << (4U * (pin - 8));
             WRITE_REG_32(pPORT->AFRH, temp_reg);
         }
     }
