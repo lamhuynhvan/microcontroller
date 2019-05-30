@@ -23,6 +23,8 @@
 
 void EXTI_INIT(UINT8 port, UINT8 pin, UINT8 exti_trigger)
 {
+    UINT32 temp_reg;
+
     /* Enable interrupt for EXTI0 */
     pEXTI->IMR &= ~((UINT32)1U << pin);
     pEXTI->IMR |=  ((UINT32)1U << pin);
@@ -30,13 +32,13 @@ void EXTI_INIT(UINT8 port, UINT8 pin, UINT8 exti_trigger)
     /* Clear Rising/Falling trigger */
     pEXTI->FTSR &= ~((UINT32)1U << pin);
     pEXTI->RTSR &= ~((UINT32)1U << pin);
-        
+
     /* Rising/Falling trigger */
     if((EXTI_TRIGGER_RISING == exti_trigger) || (EXTI_TRIGGER_BOTH == exti_trigger))
     {
         pEXTI->RTSR |=  ((UINT32)1U << pin);
     }
-    
+
     if((EXTI_TRIGGER_FALLING == exti_trigger) || (EXTI_TRIGGER_BOTH == exti_trigger))
     {
         pEXTI->FTSR |=  ((UINT32)1U << pin);
@@ -46,28 +48,28 @@ void EXTI_INIT(UINT8 port, UINT8 pin, UINT8 exti_trigger)
     switch(port)
     {
         case PORTA:
-            pSYSCFG->EXTICR[pin / 4U] &= ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
-            pSYSCFG->EXTICR[pin / 4U] |=  (UINT32)SYSCFG_EXTICR_EXTI_PORTA << (4U * (pin / 4U));
+            temp_reg = pSYSCFG->EXTICR[pin / 4U] & ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
+            pSYSCFG->EXTICR[pin / 4U] =    temp_reg | ((UINT32)SYSCFG_EXTICR_EXTI_PORTA << (4U * (pin / 4U)));
             break;
         case PORTB:
-            pSYSCFG->EXTICR[pin / 4U] &= ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
-            pSYSCFG->EXTICR[pin / 4U] |=  (UINT32)SYSCFG_EXTICR_EXTI_PORTB << (4U * (pin / 4U));
+            temp_reg = pSYSCFG->EXTICR[pin / 4U] & ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
+            pSYSCFG->EXTICR[pin / 4U] =    temp_reg | ((UINT32)SYSCFG_EXTICR_EXTI_PORTB << (4U * (pin / 4U)));
             break;
         case PORTC:
-            pSYSCFG->EXTICR[pin / 4U] &= ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
-            pSYSCFG->EXTICR[pin / 4U] |=  (UINT32)SYSCFG_EXTICR_EXTI_PORTC << (4U * (pin / 4U));
+            temp_reg = pSYSCFG->EXTICR[pin / 4U] & ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
+            pSYSCFG->EXTICR[pin / 4U] =    temp_reg | ((UINT32)SYSCFG_EXTICR_EXTI_PORTC << (4U * (pin / 4U)));
             break;
         case PORTD:
-            pSYSCFG->EXTICR[pin / 4U] &= ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
-            pSYSCFG->EXTICR[pin / 4U] |=  (UINT32)SYSCFG_EXTICR_EXTI_PORTD << (4U * (pin / 4U));
+            temp_reg = pSYSCFG->EXTICR[pin / 4U] & ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
+            pSYSCFG->EXTICR[pin / 4U] =    temp_reg | ((UINT32)SYSCFG_EXTICR_EXTI_PORTD << (4U * (pin / 4U)));
             break;
         case PORTE:
-            pSYSCFG->EXTICR[pin / 4U] &= ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
-            pSYSCFG->EXTICR[pin / 4U] |=  (UINT32)SYSCFG_EXTICR_EXTI_PORTE << (4U * (pin / 4U));
+            temp_reg = pSYSCFG->EXTICR[pin / 4U] & ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
+            pSYSCFG->EXTICR[pin / 4U] =    temp_reg | ((UINT32)SYSCFG_EXTICR_EXTI_PORTE << (4U * (pin / 4U)));
             break;
         case PORTF:
-            pSYSCFG->EXTICR[pin / 4U] &= ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
-            pSYSCFG->EXTICR[pin / 4U] |=  (UINT32)SYSCFG_EXTICR_EXTI_PORTF << (4U * (pin / 4U));
+            temp_reg = pSYSCFG->EXTICR[pin / 4U] & ~((UINT32)SYSCFG_EXTICR_EXTI_MASK << (4U * (pin / 4U)));
+            pSYSCFG->EXTICR[pin / 4U] =    temp_reg | ((UINT32)SYSCFG_EXTICR_EXTI_PORTF << (4U * (pin / 4U)));
             break;
         default:
             break;
