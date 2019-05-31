@@ -1,5 +1,5 @@
 /*
- ****************************************************************************************
+ ******************************************************************************************
  * @file      startup_stm32f051x8.s
  * @author    MCD Application Team
  * @brief     STM32F051x4/STM32F051x6/STM32F051x8 devices vector table for GCC toolchain.
@@ -11,7 +11,7 @@
  *                  calls main()).
  *            After Reset the Cortex-M0 processor is in Thread mode,
  *            priority is Privileged, and the Stack is set to Main.
- ****************************************************************************************
+ ******************************************************************************************
  */
 
   .syntax unified
@@ -98,13 +98,13 @@ Default_Handler:
 Infinite_Loop:
   b Infinite_Loop
   .size Default_Handler, .-Default_Handler
-/******************************************************************************
+/******************************************************************************************
 *
 * The minimal vector table for a Cortex M0.  Note that the proper constructs
 * must be placed on this to ensure that it ends up at physical address
 * 0x0000.0000.
 *
-******************************************************************************/
+******************************************************************************************/
    .section .isr_vector,"a",%progbits
   .type g_pfnVectors, %object
   .size g_pfnVectors, .-g_pfnVectors
@@ -127,46 +127,46 @@ g_pfnVectors:
   .word  0
   .word  PendSV_Handler
   .word  SysTick_Handler
-  .word  WWDG_IRQHandler                   /* Window WatchDog              */
-  .word  PVD_IRQHandler                    /* PVD through EXTI Line detect */
-  .word  RTC_IRQHandler                    /* RTC through the EXTI line    */
-  .word  FLASH_IRQHandler                  /* FLASH                        */
-  .word  RCC_CRS_IRQHandler                /* RCC and CRS                  */
-  .word  EXTI0_1_IRQHandler                /* EXTI Line 0 and 1            */
-  .word  EXTI2_3_IRQHandler                /* EXTI Line 2 and 3            */
-  .word  EXTI4_15_IRQHandler               /* EXTI Line 4 to 15            */
-  .word  TSC_IRQHandler                    /* TSC                          */
-  .word  DMA1_Channel1_IRQHandler          /* DMA1 Channel 1               */
-  .word  DMA1_Channel2_3_IRQHandler        /* DMA1 Channel 2 and Channel 3 */
-  .word  DMA1_Channel4_5_IRQHandler        /* DMA1 Channel 4 and Channel 5 */
-  .word  ADC1_COMP_IRQHandler              /* ADC1, COMP1 and COMP2        */
+  .word  WWDG_IRQHandler                   /* Window WatchDog                             */
+  .word  PVD_IRQHandler                    /* PVD through EXTI Line detect                */
+  .word  RTC_IRQHandler                    /* RTC through the EXTI line                   */
+  .word  FLASH_IRQHandler                  /* FLASH                                       */
+  .word  RCC_CRS_IRQHandler                /* RCC and CRS                                 */
+  .word  EXTI0_1_IRQHandler                /* EXTI Line 0 and 1                           */
+  .word  EXTI2_3_IRQHandler                /* EXTI Line 2 and 3                           */
+  .word  EXTI4_15_IRQHandler               /* EXTI Line 4 to 15                           */
+  .word  TSC_IRQHandler                    /* TSC                                         */
+  .word  DMA1_Channel1_IRQHandler          /* DMA1 Channel 1                              */
+  .word  DMA1_Channel2_3_IRQHandler        /* DMA1 Channel 2 and Channel 3                */
+  .word  DMA1_Channel4_5_IRQHandler        /* DMA1 Channel 4 and Channel 5                */
+  .word  ADC1_COMP_IRQHandler              /* ADC1, COMP1 and COMP2                       */
   .word  TIM1_BRK_UP_TRG_COM_IRQHandler    /* TIM1 Break, Update, Trigger and Commutation */
-  .word  TIM1_CC_IRQHandler                /* TIM1 Capture Compare         */
-  .word  TIM2_IRQHandler                   /* TIM2                         */
-  .word  TIM3_IRQHandler                   /* TIM3                         */
-  .word  TIM6_DAC_IRQHandler               /* TIM6 and DAC                 */
-  .word  0                                 /* Reserved                     */
-  .word  TIM14_IRQHandler                  /* TIM14                        */
-  .word  TIM15_IRQHandler                  /* TIM15                        */
-  .word  TIM16_IRQHandler                  /* TIM16                        */
-  .word  TIM17_IRQHandler                  /* TIM17                        */
-  .word  I2C1_IRQHandler                   /* I2C1                         */
-  .word  I2C2_IRQHandler                   /* I2C2                         */
-  .word  SPI1_IRQHandler                   /* SPI1                         */
-  .word  SPI2_IRQHandler                   /* SPI2                         */
-  .word  USART1_IRQHandler                 /* USART1                       */
-  .word  USART2_IRQHandler                 /* USART2                       */
-  .word  0                                 /* Reserved                     */
-  .word  CEC_CAN_IRQHandler                /* CEC and CAN                  */
-  .word  0                                 /* Reserved                     */
+  .word  TIM1_CC_IRQHandler                /* TIM1 Capture Compare                        */
+  .word  TIM2_IRQHandler                   /* TIM2                                        */
+  .word  TIM3_IRQHandler                   /* TIM3                                        */
+  .word  TIM6_DAC_IRQHandler               /* TIM6 and DAC                                */
+  .word  0                                 /* Reserved                                    */
+  .word  TIM14_IRQHandler                  /* TIM14                                       */
+  .word  TIM15_IRQHandler                  /* TIM15                                       */
+  .word  TIM16_IRQHandler                  /* TIM16                                       */
+  .word  TIM17_IRQHandler                  /* TIM17                                       */
+  .word  I2C1_IRQHandler                   /* I2C1                                        */
+  .word  I2C2_IRQHandler                   /* I2C2                                        */
+  .word  SPI1_IRQHandler                   /* SPI1                                        */
+  .word  SPI2_IRQHandler                   /* SPI2                                        */
+  .word  USART1_IRQHandler                 /* USART1                                      */
+  .word  USART2_IRQHandler                 /* USART2                                      */
+  .word  0                                 /* Reserved                                    */
+  .word  CEC_CAN_IRQHandler                /* CEC and CAN                                 */
+  .word  0                                 /* Reserved                                    */
 
-/*******************************************************************************
+/*******************************************88*********************************************
 *
 * Provide weak aliases for each Exception handler to the Default_Handler.
 * As they are weak aliases, any function with the same name will override
 * this definition.
 *
-*******************************************************************************/
+*******************************************************************************************/
 
   .weak      NMI_Handler
   .thumb_set NMI_Handler,Default_Handler
