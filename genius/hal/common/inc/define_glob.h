@@ -12,7 +12,7 @@
 #ifndef _DEFINE_GLOB_H_
 #define _DEFINE_GLOB_H_
 
-#include "driver.h"
+#include "types.h"
 
 #define BIT0                            (UINT8)0x01U
 #define BIT1                            (UINT8)0x02U
