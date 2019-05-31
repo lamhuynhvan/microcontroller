@@ -1,9 +1,5 @@
 /*
 *****************************************************************************
-**
-
-**  File        : LinkerScript.ld
-**
 **  Abstract    : Linker script for STM32F051R8Tx Device with
 **                64KByte FLASH, 8KByte RAM
 **
