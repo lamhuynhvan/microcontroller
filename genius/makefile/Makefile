@@ -51,6 +51,7 @@ OUTPUT_PATH 		:= ./output/test_$(MODULE_NAME)/$(TEST_NAME)
 include $(TEST_DIR)/test_$(MODULE_NAME)/make/$(TEST_NAME).mak
 
 # Include folders:
+INC_DIRS			+= $(PLATFORM_DIR)/inc
 INC_DIRS			+= $(HAL_DIR)/common/inc
 INC_DIRS			+= $(HAL_DIR)/clock/inc
 INC_DIRS			+= $(HAL_DIR)/gpio/inc

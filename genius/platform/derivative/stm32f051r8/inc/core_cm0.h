@@ -22,6 +22,16 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 *
 *===================================================================================================*/
+/*
+ *===================================================================================================
+ * Revision History:
+ *                              Modification     Tracking
+ * Author (core ID)              Date D/M/Y       Number     Description of Changes
+ *---------------------------   ------------   ------------  ----------------------------------------
+ * Lam Huynh Van                 28/05/2019     ENGR11682    Initial version
+ *---------------------------   ------------   ------------  ----------------------------------------
+ *===================================================================================================
+ */
 
 #ifndef _CORE_CM0_H_
 #define _CORE_CM0_H_
@@ -81,10 +91,6 @@ typedef volatile struct
 
 #define pSYST                   ((SYST_t *)SYST_BASE_ADDR)
 
-
-
-
-
 typedef enum IRQn
 {
     /* Cortex-M0 Processor Exceptions Numbers */
@@ -131,19 +137,5 @@ typedef enum IRQn
 
 #define enable_global_irq                   asm("cpsie i")
 #define disable_global_irq                  __asm volatile("cpsid i")
-
-
-
-
-#ifdef HISTORY
-/***********************************************************************
-*
-*  $Log: core_cm0.h
-*  Revision 1.0  10/05/2019
-*  Initial Version
-*  [Lam Huynh Van]
-*
-***********************************************************************/
-#endif /* HISTORY */
 
 #endif /* _CORE_CM0_H_ */
