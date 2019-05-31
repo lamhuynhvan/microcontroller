@@ -46,7 +46,7 @@ LIB_DIR				:= $(PROJ_DIR)/lib
 PLATFORM_DIR		:= $(PROJ_DIR)/platform/derivative/$(DERIVATIVE_NAME)
 
 # Output building folder
-OUTPUT_PATH 		:= ./output/test_$(MODULE_NAME)/$(TEST_NAME)
+OUTPUT_PATH 		:= $(PROJ_DIR)/output/test_$(MODULE_NAME)/$(TEST_NAME)
 
 include $(TEST_DIR)/test_$(MODULE_NAME)/make/$(TEST_NAME).mak
 
