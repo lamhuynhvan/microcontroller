@@ -43,7 +43,7 @@ void EXTI0_1_IRQHandler(void)
 {
     unsigned int temp;
     /* Ngat cua PA0 */
-    temp = (pEXTI->PR) & (0x01U << 0U)
+    temp = (pEXTI->PR) & (0x01U << 0U);
     // temp = read_reg(EXTI_PR, (1U << 0U));
     if (0x01U == temp)
     {
@@ -72,7 +72,7 @@ void main(void)
     SET_GPIO_CLOCK(PORTC);
     GPIO_SET_MODE_PIN(PORTA, USER_BUTTON, GPIO_MODE_OPTION_INPUT);
     GPIO_SET_MODE_PIN(PORTC, LED3_PIN, GPIO_MODE_OPTION_OUTPUT);
-    EXTI_INIT(PORTA, USER_BUTTON, EXTI_RISING_TRIGGER);
+    EXTI_INIT(PORTA, USER_BUTTON, EXTI_TRIGGER_RISING);
     NVIC_SetPriority(EXTI0_1_IRQn, 0x01U);
     NVIC_EnableIRQ(EXTI0_1_IRQn);
     enable_global_irq;
