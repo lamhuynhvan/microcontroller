@@ -75,7 +75,7 @@ SRC_DIRS			+= $(PLATFORM_DIR)/startup
 ASM_DIRS			+= $(PLATFORM_DIR)/startup
 
 # Linker file
-LINKER_FILE			:= $(PLATFORM_DIR)/linker/stm32f0.ld
+LINKER_FILE			:= $(PLATFORM_DIR)/linker/STM32F0_DISCOVERY.ld
 
 # Setting compiler option
 CC_OPT				= -march=armv6-m -mcpu=cortex-m0 -c -g -mthumb $(INC_DIR) -DCLI_STAND_ALONE
