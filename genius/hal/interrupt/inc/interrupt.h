@@ -19,8 +19,8 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 *
 *===================================================================================================*/
-#ifndef _GPIO_H_
-#define _GPIO_H_
+#ifndef _INTERRUPT_H_
+#define _INTERRUPT_H_
 #include "driver.h"
 
 #define EXTI_TRIGGER_NONE                   0x00U
@@ -67,4 +67,4 @@ static inline void NVIC_EnableIRQ(IRQn_Type IRQn)
 ***********************************************************************/
 #endif /* HISTORY */
 
-#endif /* _GPIO_H_ */
+#endif /* _INTERRUPT_H_ */
