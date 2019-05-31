@@ -39,7 +39,7 @@ INC_DIRS			+= $(TEST_DIR)/test_$(MODULE_NAME)/include
 ####################################################################################################
 # List of source files
 ####################################################################################################
-SRC_FILES			+= $(TEST_DIR)/test_$(MODULE_NAME)/src/gpio_01.c
+SRC_FILES			+= $(TEST_DIR)/test_$(MODULE_NAME)/src/gpio_03.c
 
 ################################################################################
 # Additional test specific C compiler options
