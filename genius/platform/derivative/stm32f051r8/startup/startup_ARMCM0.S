@@ -187,18 +187,6 @@ g_pfnVectors:
   .weak      Reserved_IRQHandler
   .thumb_set Reserved_IRQHandler,Default_Handler
 
-  .weak      PVD_IRQHandler
-  .thumb_set PVD_IRQHandler,Default_Handler
-
-  .weak      RTC_IRQHandler
-  .thumb_set RTC_IRQHandler,Default_Handler
-
-  .weak      FLASH_IRQHandler
-  .thumb_set FLASH_IRQHandler,Default_Handler
-
-  .weak      RCC_CRS_IRQHandler
-  .thumb_set RCC_CRS_IRQHandler,Default_Handler
-
   .weak      EXTI0_1_IRQHandler
   .thumb_set EXTI0_1_IRQHandler,Default_Handler
 
